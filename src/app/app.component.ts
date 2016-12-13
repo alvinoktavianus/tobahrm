@@ -1,9 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
+import { Storage } from '@ionic/storage';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
+import { LoginPage } from '../pages/login/login';
 
 
 @Component({
@@ -16,7 +18,9 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform) {
+  constructor(public platform: Platform,
+              public alertCtrl: AlertController,
+              public storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -41,4 +45,26 @@ export class MyApp {
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
   }
+
+  signout() {
+  let alert = this.alertCtrl.create({
+    title: 'Confirm sign out',
+    message: 'Are you sure you want to sign out?',
+    buttons: [
+      {
+        text: 'No'
+      },
+      {
+        text: 'Yes',
+        handler: () => {
+          this.storage.set('emplid', '');
+          this.storage.set('email', '');
+          this.nav.setRoot(LoginPage);
+        }
+      }
+    ]
+  });
+  alert.present();
+  }
+
 }

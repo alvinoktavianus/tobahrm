@@ -55,7 +55,7 @@ export class LoginPage {
             let response = JSON.parse(this.responseData._body);
             this.storage.set('emplid', response.EmployeeID);
             this.storage.set('email', response.Email);
-            this.navCtrl.setRoot(Page1)
+            this.navCtrl.setRoot(Page1);
           },
           err => this.presentAlert()
         );
