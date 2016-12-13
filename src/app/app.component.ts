@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform, NavController } from 'ionic-angular';
+import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 import { Storage } from '@ionic/storage';
 
@@ -14,20 +14,19 @@ import { LoginPage } from '../pages/login/login';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = LoginPage;
+  rootPage: any = Page1;
 
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,
-              public storage: Storage,
-              public navCtrl: NavController) {
+              public alertCtrl: AlertController,
+              public storage: Storage) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Page One', component: Page1 },
-      { title: 'Page Two', component: Page2 },
-      { title: 'Sign Out', component: this.signout() }
+      { title: 'Page Two', component: Page2 }
     ];
 
   }
@@ -48,8 +47,23 @@ export class MyApp {
   }
 
   signout() {
-    this.storage.set('emplid', '');
-    this.storage.set('email', '');
-    this.navCtrl.setRoot(LoginPage);
+    let alert = this.alertCtrl.create({
+      title: 'Confirm sign out',
+      message: 'Are you sure you want to sign out?',
+      buttons: [
+        {
+          text: 'No'
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.storage.set('emplid', '');
+            this.storage.set('email', '');
+            this.nav.setRoot(LoginPage);
+          }
+        }
+      ]
+    });
+    alert.present();
   }
 }
