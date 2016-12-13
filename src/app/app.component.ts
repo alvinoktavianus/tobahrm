@@ -37,6 +37,18 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
       Splashscreen.hide();
+
+      let employeeid, employeemail;
+
+      this.storage.get('emplid').then((emplid_value) => { employeeid = emplid_value; });
+      this.storage.get('email').then((email_value) => employeemail => { employeemail = email_value; });
+
+      if ( employeeid == undefined && employeemail == undefined ) {
+        this.nav.setRoot(LoginPage);
+      }
+
+      console.log(employeeid, employeemail);
+
     });
   }
 
@@ -57,8 +69,8 @@ export class MyApp {
         {
           text: 'Yes',
           handler: () => {
-            this.storage.set('emplid', '');
-            this.storage.set('email', '');
+            this.storage.set('emplid', undefined);
+            this.storage.set('email', undefined);
             this.nav.setRoot(LoginPage);
           }
         }
