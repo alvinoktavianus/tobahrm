@@ -37,9 +37,7 @@ export class HomePage {
       .subscribe(
         data => {
           this.responseData = data;
-          let response = JSON.parse(this.responseData._body);
-          this.username = response.FullName;
-          console.log(data);
+          this.username = JSON.parse(this.responseData._body).FullName;
         }
       );
   }

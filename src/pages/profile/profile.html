@@ -15,9 +15,22 @@
 
 
 <ion-content padding>
-  <ion-card>
-    <ion-card-content>
-      The British use the term "header", but the American term "head-shot" the English simply refuse to adopt.
-    </ion-card-content>
-  </ion-card>
+
+  <ion-grid *ngIf="response">
+    <ion-row>
+      <ion-col width-33><strong>Card No.</strong></ion-col>
+      <ion-col width-67>{{response.IdCardNo}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-33><strong>Full Name</strong></ion-col>
+      <ion-col width-67>{{response.FullName}}</ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col width-33><strong>Email</strong></ion-col>
+      <ion-col width-67>{{response.Email}}</ion-col>
+    </ion-row>
+  </ion-grid>
+  
 </ion-content>
