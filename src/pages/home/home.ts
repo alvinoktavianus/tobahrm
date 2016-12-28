@@ -23,9 +23,11 @@ export class HomePage {
               public http: Http,
               public alertCtrl: AlertController) {
 
-    this.employeeid = localStorage.getItem('emplid');
-    this.url = "https://hr-backend.herokuapp.com/api/v1/users/"+this.employeeid;
-    this.getCurrentProfile(this.url);
+    if ( localStorage.getItem('emplid') != '' && localStorage.getItem('emplid') != null ) {
+      this.employeeid = localStorage.getItem('emplid');
+      this.url = "https://hr-backend.herokuapp.com/api/v1/users/"+this.employeeid;
+      this.getCurrentProfile(this.url);
+    }
 
   }
 

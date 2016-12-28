@@ -16,9 +16,9 @@ import { HomePage } from '../home/home';
 })
 export class LoginPage {
 
-  email: string;
-  password: string;
-  responseData;
+  public email: string;
+  public password: string;
+  private responseData;
 
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController,
