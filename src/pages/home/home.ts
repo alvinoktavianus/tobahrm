@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { NavController } from 'ionic-angular';
+import { Http } from '@angular/http';
 
+/*
+  Generated class for the Home page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+*/
 @Component({
-  selector: 'page-page1',
-  templateUrl: 'page1.html'
+  selector: 'page-home',
+  templateUrl: 'home.html'
 })
-export class Page1 {
+export class HomePage {
 
   username: string;
   employeeid: any;

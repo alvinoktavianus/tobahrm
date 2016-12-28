@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
 
-import { Page1 } from '../page1/page1';
+import { HomePage } from '../home/home';
 
 /*
   Generated class for the Login page.
@@ -53,7 +53,7 @@ export class LoginPage {
             let response = JSON.parse(this.responseData._body);
             localStorage.setItem('emplid', response.EmployeeID);
             localStorage.setItem('email', response.Email);
-            this.navCtrl.setRoot(Page1);
+            this.navCtrl.setRoot(HomePage);
           },
           err => this.presentAlert()
         );
