@@ -2,7 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { Page2 } from '../pages/page2/page2';
+import { CreatePersonalLeavePage } from '../pages/create-personal-leave/create-personal-leave';
+import { PersonalLeavePage } from '../pages/personal-leave/personal-leave';
+
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
 
@@ -10,7 +12,8 @@ import { ProfilePage } from '../pages/profile/profile';
   declarations: [
     MyApp,
     HomePage,
-    Page2,
+    PersonalLeavePage,
+    CreatePersonalLeavePage,
     LoginPage,
     ProfilePage
   ],
@@ -21,7 +24,8 @@ import { ProfilePage } from '../pages/profile/profile';
   entryComponents: [
     MyApp,
     HomePage,
-    Page2,
+    PersonalLeavePage,
+    CreatePersonalLeavePage,
     LoginPage,
     ProfilePage
   ],
