@@ -5,7 +5,6 @@ import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
 import { LoginPage } from '../pages/login/login';
 import { ProfilePage } from '../pages/profile/profile';
-import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -26,6 +25,6 @@ import { Storage } from '@ionic/storage';
     LoginPage,
     ProfilePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, Storage]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
 })
 export class AppModule {}

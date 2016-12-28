@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform, AlertController } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
-import { Storage } from '@ionic/storage';
 
 import { Page1 } from '../pages/page1/page1';
 import { Page2 } from '../pages/page2/page2';
@@ -20,8 +19,7 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(public platform: Platform,
-              public alertCtrl: AlertController,
-              public storage: Storage) {
+              public alertCtrl: AlertController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -42,15 +40,13 @@ export class MyApp {
 
       let employeeid, employeemail;
 
-      this.storage.get('emplid').then((emplid_value) => { employeeid = emplid_value; });
-      this.storage.get('email').then((email_value) => employeemail => { employeemail = email_value; });
-
-      if ( employeeid == undefined && employeemail == undefined ) {
-        this.nav.setRoot(LoginPage);
-      }
+      employeeid = localStorage.getItem('emplid');
+      employeemail = localStorage.getItem('email');
 
       console.log(employeeid, employeemail);
-
+      if ( employeeid == '' || employeemail == '' || employeeid == null || employeemail == null) {
+        this.nav.setRoot(LoginPage);
+      }
     });
   }
 
@@ -71,8 +67,8 @@ export class MyApp {
         {
           text: 'Yes',
           handler: () => {
-            this.storage.set('emplid', undefined);
-            this.storage.set('email', undefined);
+            localStorage.setItem('emplid', '');
+            localStorage.setItem('email', '');
             this.nav.setRoot(LoginPage);
           }
         }

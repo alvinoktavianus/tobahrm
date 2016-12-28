@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, AlertController } from 'ionic-angular';
 import { Http } from '@angular/http';
-import { Storage } from '@ionic/storage';
 
 import { Page1 } from '../page1/page1';
 
@@ -24,8 +23,7 @@ export class LoginPage {
   constructor(public navCtrl: NavController,
               public loadingCtrl: LoadingController,
               public http: Http,
-              private alertCtrl: AlertController,
-              public storage: Storage) {}
+              private alertCtrl: AlertController) {}
 
   ionViewDidLoad() {
     // console.log('Hello LoginPage Page');
@@ -53,8 +51,8 @@ export class LoginPage {
           data => {
             this.responseData = data;
             let response = JSON.parse(this.responseData._body);
-            this.storage.set('emplid', response.EmployeeID);
-            this.storage.set('email', response.Email);
+            localStorage.setItem('emplid', response.EmployeeID);
+            localStorage.setItem('email', response.Email);
             this.navCtrl.setRoot(Page1);
           },
           err => this.presentAlert()
