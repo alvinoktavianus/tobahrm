@@ -8,11 +8,14 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+  <h3>Welcome, {{username}}</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  
+  <ion-row>
+    <ion-col width-50><button ion-button color="secondary" block (click)="checkIn()">Check In</button></ion-col>
+    <ion-col width-50><button ion-button color="danger" block (click)="checkOut()">Check Out</button></ion-col>
+  </ion-row>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <p>Here is your current schedules:</p>
+  
 </ion-content>
