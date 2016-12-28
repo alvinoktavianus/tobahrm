@@ -13,7 +13,8 @@ import { NavController } from 'ionic-angular';
 })
 export class CreatePersonalLeavePage {
 
-  leaveDate;
+  leaveFrom: String;
+  leaveTo: String;
   leaveDescription: String;
 
   constructor(public navCtrl: NavController) {}
@@ -24,7 +25,8 @@ export class CreatePersonalLeavePage {
 
   createPersonalLeave() {
     let personalLeaveData = {
-      date: this.leaveDate,
+      from: this.leaveFrom,
+      to: this.leaveTo,
       description: this.leaveDescription
     };
     console.log(JSON.stringify(personalLeaveData));

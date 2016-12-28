@@ -19,8 +19,13 @@
   <ion-list inset>
 
     <ion-item>
-      <ion-label>Personal Leave Date</ion-label>
-      <ion-datetime displayFormat="DDDD, DD MMMM YYYY" [(ngModel)]="leaveDate"></ion-datetime>
+      <ion-label>Date from</ion-label>
+      <ion-datetime displayFormat="DDDD, DD MMMM YYYY" [(ngModel)]="leaveFrom"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Date to</ion-label>
+      <ion-datetime displayFormat="DDDD, DD MMMM YYYY" [(ngModel)]="leaveTo"></ion-datetime>
     </ion-item>
 
     <ion-item>
